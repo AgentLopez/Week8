@@ -1,0 +1,16 @@
+body {
+    background-color: aliceblue;
+    text-align: center;
+}
+
+ul {
+    text-align: -webkit-center;
+}
+
+li {
+    list-style-type: none;
+    border: solid 5px lightblue;
+    width: 300px;
+    border-radius: 10px;
+    margin: inherit;
+}

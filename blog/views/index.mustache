@@ -1,8 +1,14 @@
 <html>
-<head></head>
+<head>
+<link rel="stylesheet" href="/style.css">
+</head>
 <body>
 
+<a href="/newpost">Post A New Post</a>
+<br><br>
+<ul>
 {{#posts}}
+<li>
 <div><div>
 {{title}} </div><div> {{date_created}}</div></div>
 <div>
@@ -12,9 +18,9 @@
 <button>Edit Post</button>
 </form>
 </div>
-
+</li>
 {{/posts}}
-
+</ul>
 
 </body>
 </html>
