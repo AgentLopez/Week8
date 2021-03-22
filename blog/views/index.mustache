@@ -1,0 +1,20 @@
+<html>
+<head></head>
+<body>
+
+{{#posts}}
+<div><div>
+{{title}} </div><div> {{date_created}}</div></div>
+<div>
+{{body}}
+</div>
+<form method='get' action='/edit/{{post_id}}'>
+<button>Edit Post</button>
+</form>
+</div>
+
+{{/posts}}
+
+
+</body>
+</html>

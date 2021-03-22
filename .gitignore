@@ -1,0 +1,4 @@
+/node_modules
+*.zip
+/pg
+/blog/node_modules

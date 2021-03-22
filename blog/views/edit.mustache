@@ -1,0 +1,18 @@
+<html>
+<head></head>
+<body>
+
+
+<h2>Patch your POST!</h2>
+<form method ="POST" action="/edit/{{post.post_id}}">
+<input type="text" value="{{post.title}}" name="name" />
+<input type="text" value="{{post.body}}" name="body" />
+<button>Patch the Post</button>
+</form>
+
+<form method='POST' action='/delete/{{post.post_id}}'>
+<button>DELETE THIS POST/</button>
+</form>
+
+</body>
+</html>
