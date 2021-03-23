@@ -4,17 +4,19 @@
 </head>
 <body>
 
-<a href="/newpost">Post A New Post</a>
+<a href="/home/newpost">Post A New Post</a>
 <br><br>
 <ul>
 {{#posts}}
 <li>
 <div><div>
-{{title}} </div><div> {{date_created}}</div></div>
+<a href="/home/details/{{post_id}}">{{title}}</a> </div><div> {{date_created}}</div></div>
 <div>
 {{body}}
+<a href="/home/details/{{post_id}}">Comment</a>
 </div>
-<form method='get' action='/edit/{{post_id}}'>
+
+<form method='get' action='/home/edit/{{post_id}}'>
 <button>Edit Post</button>
 </form>
 </div>

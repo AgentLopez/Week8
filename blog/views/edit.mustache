@@ -2,17 +2,21 @@
 <head><link rel="stylesheet" href="/style.css"></head>
 <body>
 
-
-<h2>Patch your POST!</h2>
-<form method ="POST" action="/edit/{{post.post_id}}">
+<h2>Patch your POST!</h2><ul>
+<li>
+<form method ="POST" action="/home/edit/{{post.post_id}}">
 <input type="text" value="{{post.title}}" name="name" />
-<input type="text" value="{{post.body}}" name="body" />
-<button>Patch the Post</button>
-</form>
+<br>
+<textarea type="text" name="body" rows="5" cols="24">
+{{post.body}}
+</textarea>
 
-<form method='POST' action='/delete/{{post.post_id}}'>
+<br><button>Patch the Post</button>
+</form>
+</li><li>
+<form method='POST' action='/home/delete/{{post.post_id}}'>
 <button>DELETE THIS POST</button>
-</form>
-
+</form></li>
+</ul>
 </body>
 </html>

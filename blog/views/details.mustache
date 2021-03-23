@@ -1,0 +1,54 @@
+<html>
+<head><link rel="stylesheet" href="/style.css"></head>
+<body>
+
+<h2>Post Details</h2>
+
+<ul>
+
+<li>
+<div><div>
+{{post.title}} </div><div> {{all.date_created}}</div></div>
+<div>
+{{all.body}}
+</div>
+<form method='get' action='/home/edit/{{all.post_id}}'>
+<button>Edit Post</button>
+</form>
+</div>
+</li>
+
+{{#comments}}
+<li>
+<div><div>
+{{post.title}} </div><div> {{comment_title}}</div></div>
+<div>
+{{comment_body}}
+</div>
+{{comment_created}}
+</form>
+</div>
+</li>
+{{/comments}}
+
+</ul>
+
+
+
+<ul>
+<li>
+<h3>Add Comment</h3>
+<form method ="POST" action="/home/comment/{{post.post_id}}">
+<input type="text" value="" name="title" />
+<br>
+<textarea type="text" name="body" rows="5" cols="24">
+Comment Here..
+</textarea>
+<br><button>Comment</button>
+</form>
+</li>
+</ul>
+
+
+</body>
+</html>
