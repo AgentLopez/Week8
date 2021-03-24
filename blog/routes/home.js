@@ -4,7 +4,7 @@ const router = express.Router()
 router.get('/', (req, res) => {
     db.any('SELECT post_id, title, body, date_created FROM post')
         .then(posts => {
-            res.render('index', { posts: posts })
+            res.render('home', { posts: posts })
         })
 })
 
@@ -47,18 +47,31 @@ router.post('/delete/:id', (req, res) => {
     db.none('DELETE FROM post WHERE post_id = $1', [id])
         .then(() => {
             res.redirect('/')
+        }).catch ((error) => {
+            res.send("Opps, Can't Delete a Post with Comments. Call Fred.")
         })
 })
+
+
 
 router.get('/details/:post_id', (req, res) => {
     let post_id = req.params.post_id
-    db.any('SELECT post.title, post.body, post.date_created, comments.comment_title, comments.comment_body, comments.comment_created FROM comments INNER JOIN post ON comments.$1 = comments.$2', [post_id, post_id])
+    db.any('SELECT post.post_id, post.title, post.body, post.date_created, comments.comment_title, comments.comment_body FROM post JOIN comments ON post.post_id = comments.post_id WHERE post.post_id = $1', [post_id])
         .then((all) => {
-            console.log(all)
-            res.render('details', { all: all })
+            if(all.length == 0) {
+                db.one('SELECT post_id, title, body, date_created FROM post WHERE post_id = $1', [post_id])
+                .then((post) => {
+                    res.render('details', { post: post })
+                })
+            } else {
+            res.render('details', {post: all[0], comments: all})
+        }
         })
-
+    
 })
+    
+    
+
 
 router.post('/comment/:post_id', (req, res) => {
     let title = req.body.title

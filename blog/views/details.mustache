@@ -3,16 +3,18 @@
 <body>
 
 <h2>Post Details</h2>
-
+<br>
+<a href="/home">Home</a>
+<br>
 <ul>
 
 <li>
 <div><div>
-{{post.title}} </div><div> {{all.date_created}}</div></div>
+{{post.title}} </div><div> {{post.date_created}}</div></div>
 <div>
-{{all.body}}
+{{post.body}}
 </div>
-<form method='get' action='/home/edit/{{all.post_id}}'>
+<form method='get' action='/home/edit/{{post.post_id}}'>
 <button>Edit Post</button>
 </form>
 </div>
@@ -21,7 +23,7 @@
 {{#comments}}
 <li>
 <div><div>
-{{post.title}} </div><div> {{comment_title}}</div></div>
+{{comment_title}} </div><div> {{comment_title}}</div></div>
 <div>
 {{comment_body}}
 </div>

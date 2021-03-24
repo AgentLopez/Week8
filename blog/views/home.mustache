@@ -1,0 +1,28 @@
+<html>
+<head>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>Welcome Home</h1><br>
+<a href="/home/newpost">Post A New Post</a>
+<br><br>
+<ul>
+{{#posts}}
+<li>
+<div><div>
+<h3><a href="/home/details/{{post_id}}">{{title}}</a></h3> </div><div> {{date_created}}</div></div>
+<div>
+<p>{{body}}</p>
+<a href="/home/details/{{post_id}}">Comment</a>
+</div>
+
+<form method='get' action='/home/edit/{{post_id}}'>
+<button>Edit Post</button>
+</form>
+</div>
+</li>
+{{/posts}}
+</ul>
+
+</body>
+</html>
