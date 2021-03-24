@@ -1,0 +1,26 @@
+<html>
+<head></head>
+<body>
+<br>
+<a href="/">Home</a>
+<br>
+<h1> Make A Post</h1>
+categorys: 
+{{#posts}}
+<a href="/category/{{category}}">{{category}}</a>
+{{/posts}}
+
+<br><br>
+
+<form method="POST" action="/post">
+<input type="text" placeholder="Title" name="title" />
+<input type="text" placeholder="Post Message" name="body" />
+<input type="text" placeholder="Category" name="category" />
+<button>Add My Words</button>
+</form>
+
+
+
+
+</body>
+</html>

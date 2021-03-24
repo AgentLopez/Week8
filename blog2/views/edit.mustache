@@ -1,0 +1,26 @@
+<html>
+<head></head>
+<body>
+<br>
+<a href="/">Home</a>
+<br>
+<h1> Edit Your Post</h1>
+categorys: 
+{{#post}}
+<a href="/category/{{category}}">{{category}}</a>
+
+
+<br><br>
+
+<form method="POST" action="/edit/{{id}}">
+<input type="text"  value="{{title}}" name="title" />
+<input type="text" value="{{body}}" name="body" />
+<input type="text" value="{{category}}" name="category" />
+<button>Update My Words</button>
+</form>
+
+{{/post}}
+
+
+</body>
+</html>
