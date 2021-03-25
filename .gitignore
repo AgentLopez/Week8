@@ -1,4 +1,16 @@
 /node_modules
 *.zip
+sequalize commands.txt
 /pg
 /blog/node_modules
+join.png
+join two.PNG
+database.xlsx
+/blog/migrations
+/blog/models
+/blog/config
+/blog/node_modules
+/blog2/migrations
+/blog2/models
+/blog2/config
+/blog2/node_modules
