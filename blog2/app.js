@@ -14,7 +14,7 @@ app.use(express.urlencoded())
 app.get('/', (req, res) => {
     models.pst.findAll({})
         .then(posts => {
-            res.render('index', {posts: posts})
+            res.render('index', { posts: posts })
         })
 })
 
@@ -50,27 +50,79 @@ app.get('/delete/:id', (req, res) => {
     })
 })
 
+app.get('/comment/:id', (req, res) => {
+    let id = req.params.id
+    models.pst.findByPk(id, {
+        include: [
+            {
+                model: models.cmt,
+                as: 'cmts'
+            }]
+    })
+    .then(all => {
+        console.log(all)
+    res.render('comment', {all: all})
+    })
+    .catch(error => console.log(error)
+        // models.pst.findByPk(id)
+        // .then(all => {
+        //     console.log(all)
+        // res.render('comment', {all: all})
+        // })
+    )
+}
+)
+
+app.post('/comment/:id', (req, res) => {
+    let id = req.params.id
+    let subject = req.body.subject
+    let comment = req.body.comment
+
+    let newcomment = models.cmt.build({
+        subject: subject,
+        comment: comment,
+        pst_id: id
+    })
+
+    newcomment.save().then(savedCmt => {
+        res.redirect('/')
+    })
+
+})
+
+app.get('/delete-comment/:id', (req, res) => {
+    let id = req.params.id
+
+    models.cmt.destroy({
+        where: {
+            id: id
+        }
+    }).then(deleted => {
+        res.redirect('/')
+    })
+})
+
 app.get('/category/:category', (req, res) => {
     let category = req.params.category
 
     models.pst.findAll({
         where: {
-            category: category     
+            category: category
         }
     }).then(posts => {
-        res.render('index', {posts: posts})
+        res.render('index', { posts: posts })
     })
 })
 
 app.get('/edit/:id', (req, res) => {
     let id = req.params.id
-    
+
     models.pst.findAll({
         where: {
-            id: id     
+            id: id
         }
     }).then(post => {
-        res.render('edit', {post: post})
+        res.render('edit', { post: post })
     })
 
 })
@@ -80,14 +132,14 @@ app.post('/edit/:id', (req, res) => {
     const title = req.body.title
     const body = req.body.body
     const category = req.body.category
-    
+
     models.pst.update({
         title: title,
         body: body,
         category: category
     }, {
         where: {
-            id: id     
+            id: id
         }
     }).then(post => {
         res.redirect('/')

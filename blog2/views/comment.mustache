@@ -1,0 +1,42 @@
+<html>
+<head></head>
+<body>
+<br>
+<a href="/">Home</a>
+<br>
+<h1> Add A Comment</h1>
+categories: 
+{{#all}}
+<a href="/category/{{category}}">{{category}}</a>
+
+
+<br><br>
+
+
+{{title}}
+{{body}}
+{{category}}
+
+
+Comment Here
+
+<form method="POST" action="/comment/{{id}}">
+<input type="text"  placeholder="title" name="subject" />
+<input type="text" placeholder="comment" name="comment" />
+<button>Update My Words</button>
+</form>
+
+{{/all}}
+
+{{#all.cmts}}<br><br>
+
+
+{{subject}}<br>
+{{comment}}
+<br>
+<a href="/delete-comment/{{id}}">delete comment</a>
+{{/all.cmts}}
+
+
+</body>
+</html>
