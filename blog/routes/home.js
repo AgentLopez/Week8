@@ -18,7 +18,7 @@ router.post('/newpost', (req, res) => {
     const user_id = req.session.userid
     db.none('INSERT INTO post(title, body, user_id) VALUES($1, $2, $3)', [title, body, user_id])
         .then(() => {
-            res.redirect('/')
+            res.redirect('/home')
         })
 })
 
@@ -38,7 +38,7 @@ router.post('/edit/:id', (req, res) => {
 
     db.none('UPDATE post SET title = $1, body = $2, date_updated = $3 WHERE post_id = $4', [title, body, 'now()', id])
         .then(() => {
-            res.redirect('/')
+            res.redirect('/home')
         })
 })
 
@@ -46,7 +46,7 @@ router.post('/delete/:id', (req, res) => {
     const id = req.params.id
     db.none('DELETE FROM post WHERE post_id = $1', [id])
         .then(() => {
-            res.redirect('/')
+            res.redirect('/home')
         }).catch ((error) => {
             res.send("Opps, Can't Delete a Post with Comments. Call Fred.")
         })

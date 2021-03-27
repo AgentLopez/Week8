@@ -1,0 +1,32 @@
+<html>
+<head></head>
+<body>
+<br>
+<a href="/x/">Home</a>
+<br>
+<h1> Welcome to some Postings</h1>
+categories: 
+{{#posts}}
+<a href="/x/category/{{category}}">{{category}}</a>
+{{/posts}}
+
+<br><br>
+
+{{#posts}}
+
+{{title}} <a href="/x/edit/{{id}}">edit</a><br>
+{{body}} <br>
+{{category}} <br>
+<a href="/x/comment/{{id}}">Leave A Comment</a>
+<br> <br>
+<a href="/x/delete/{{id}}">remove this post</a>
+<br>
+<br>
+{{/posts}}
+
+<br>
+<h2><a href="/x/post">Add a Post (or 3) Here</a></h2>
+
+
+</body>
+</html>

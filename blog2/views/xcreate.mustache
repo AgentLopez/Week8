@@ -1,0 +1,26 @@
+<html>
+<head></head>
+<body>
+<br>
+<a href="/x/">Home</a>
+<br>
+<h1> Make A Post</h1>
+Category Suggestions: NodeJS JavaScript Pizza 
+{{#posts}}
+<a href="/x/category/{{category}}">{{category}}</a>
+{{/posts}}
+
+<br><br>
+
+<form method="POST" action="/x/post">
+<input type="text" placeholder="Title" name="title" />
+<input type="text" placeholder="Post Message" name="body" />
+<input type="text" placeholder="Category" name="category" />
+<button>Add My Words</button>
+</form>
+
+
+
+
+</body>
+</html>

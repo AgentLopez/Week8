@@ -2,12 +2,12 @@
 <head></head>
 <body>
 <br>
-<a href="/">Home</a>
+<a href="/x/">Home</a>
 <br>
 <h1> Add A Comment</h1>
 categories: 
 {{#all}}
-<a href="/category/{{category}}">{{category}}</a>
+<a href="/x/category/{{category}}">{{category}}</a>
 
 
 <br><br>
@@ -20,10 +20,10 @@ categories:
 
 Comment Here
 
-<form method="POST" action="/comment/{{id}}">
+<form method="POST" action="/x/comment/{{id}}">
 <input type="text"  placeholder="title" name="subject" />
 <input type="text" placeholder="comment" name="comment" />
-<button>Add Comment</button>
+<button>Update My Words</button>
 </form>
 
 {{/all}}
@@ -34,7 +34,7 @@ Comment Here
 {{subject}}<br>
 {{comment}}
 <br>
-<a href="/delete-comment/{{id}}">delete comment</a>
+<a href="/x/delete-comment/{{id}}">delete comment</a>
 {{/all.cmts}}
 
 

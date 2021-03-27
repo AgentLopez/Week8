@@ -1,0 +1,28 @@
+<html>
+<head></head>
+<body>
+<br>
+<a href="/">Home</a>
+<br>
+<h2>Login</h2>
+
+<form method ="POST" action="/login">
+<input type="text" placeholder="User Name" name="name" />
+<br><input type="password" placeholder="Password" name="password" />
+<br>
+<br><button>Login</button>
+</form>
+
+<br><br>
+{{#message}}
+ {{message}}
+{{/message}}
+<br><br>
+New? <a href="/register">Register Here</a>
+
+
+
+
+
+</body>
+</html>
