@@ -6,7 +6,7 @@ This week we incorperated an external database to store our users, passwords, bl
 ![](images/blog.png)
 
 ## Blog2
-As mentioned above this is simply the same blog application but using Sequalize with NodeJS to interact with the SQL database.
+As mentioned above this is simply the same blog application but using Sequelize with NodeJS to interact with the SQL database.
 
 In this one it includes a category for the post and at the top I just looped through the catagories and listed them, so if there was more then one it would display twice.
 
